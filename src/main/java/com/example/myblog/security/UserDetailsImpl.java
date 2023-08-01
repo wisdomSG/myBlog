@@ -14,6 +14,8 @@ import java.util.Collection;
 public class UserDetailsImpl implements UserDetails {
 
     private final User user;
+
+    public User getUser() { return this.user;}
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return new ArrayList<>();
@@ -48,4 +50,6 @@ public class UserDetailsImpl implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+
 }
