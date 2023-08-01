@@ -21,7 +21,11 @@ public class UserControlloer {
 
     @PostMapping("/signup")
     public ResponseEntity<ApiResponseDto> signup(@Valid @RequestBody UserRequestDto dto) {
-        userService.signup(dto);
+        try {
+            userService.signup(dto);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(new ApiResponseDto("회원가입 실패", HttpStatus.BAD_REQUEST.value()));
+        }
         return  ResponseEntity.ok().body(new ApiResponseDto("회원가입 성공", HttpStatus.CREATED.value()));
     }
 
