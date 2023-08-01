@@ -7,6 +7,7 @@ import com.example.myblog.entity.Post;
 import com.example.myblog.entity.User;
 import com.example.myblog.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,7 +32,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public PostListResponseDto getAllPosts() {
-        List<PostResponseDto> postList = postRepository.findAll()
+        List<PostResponseDto> postList = postRepository.findAll(Sort.by(Sort.Direction.DESC, "createdAt"))
                 .stream()
                 .map(PostResponseDto::new)
                 .toList();

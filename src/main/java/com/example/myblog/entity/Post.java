@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Getter
 @NoArgsConstructor // 기본생성자
@@ -21,6 +24,9 @@ public class Post extends TimeStamped {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE)
+    private List<Comment> commentList = new ArrayList<>();
 
     public Post(String title, String content, User user) {
         this.title = title;
