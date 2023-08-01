@@ -12,6 +12,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.concurrent.RejectedExecutionException;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/comments")
@@ -27,13 +29,22 @@ public class CommentController {
 
     @PutMapping("/{commentId}")
     public ResponseEntity<CommentResponseDto> updateComment(@PathVariable Long commentId, @AuthenticationPrincipal UserDetailsImpl userDetails, @RequestBody CommentRequestDto dto) {
-        CommentResponseDto result = commentService.updateComment(commentId, userDetails.getUser(), dto);
+        CommentResponseDto result = null;
+        try {
+            result = commentService.updateComment(commentId, userDetails.getUser(), dto);
+        } catch (RejectedExecutionException e) {
+            throw new RuntimeException("작성자만 수정할 수 있습니다.", e);
+        }
         return ResponseEntity.ok().body(result);
     }
 
     @DeleteMapping("/{commentId}")
     public ResponseEntity<ApiResponseDto> deleteCommnet(@PathVariable Long commentId, @AuthenticationPrincipal UserDetailsImpl userDetails) {
-        commentService.deleteComment(commentId, userDetails.getUser());
+        try {
+            commentService.deleteComment(commentId, userDetails.getUser());
+        } catch (RejectedExecutionException e) {
+            throw new RuntimeException("작성자만 삭제할 수 있습니다.", e);
+        }
         return ResponseEntity.ok().body(new ApiResponseDto("댓글이 삭제되었습니다.", HttpStatus.OK.value()));
     }
 
