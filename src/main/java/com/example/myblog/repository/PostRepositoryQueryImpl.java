@@ -1,6 +1,7 @@
 package com.example.myblog.repository;
 
 import com.example.myblog.entity.Post;
+import com.example.myblog.entity.QPost;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -21,5 +22,12 @@ public class PostRepositoryQueryImpl implements PostRepositoryQuery {
     }
 
     @Override
-    public List<Post> getPorductListWithPage(Long offset, int pageSize) { return null;}
+    public List<Post> getPostListWithPage(Long offset, int pageSize) {
+        QPost post = QPost.post;
+
+        return jpaQueryFactory.selectFrom(post)
+                .offset(offset)
+                .limit(pageSize)
+                .fetch();
+    }
 }

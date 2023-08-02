@@ -1,4 +1,4 @@
-package exception;
+package com.example.myblog.exception;
 
 import com.example.myblog.dto.ApiResponseDto;
 import org.springframework.http.HttpStatus;

@@ -10,5 +10,5 @@ public interface PostRepositoryQuery {
 
     List<Post> getPostFindByTitleList (String keyword);
 
-    List<Post> getPorductListWithPage (Long offset, int pageSize);
+    List<Post> getPostListWithPage (Long offset, int pageSize);
 }

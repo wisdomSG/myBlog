@@ -33,6 +33,12 @@ public class PostController {
         return ResponseEntity.ok().body(result);
     }
 
+    @GetMapping("/page")
+    public ResponseEntity<PostListResponseDto> getPostListWithPage(@RequestParam("page") int page, @RequestParam("size") int size) {
+        PostListResponseDto result = postService.getPostListWithPage(page, size);
+        return ResponseEntity.ok().body(result);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<PostResponseDto> getPostById(@PathVariable Long id) {
         PostResponseDto result = postService.getPostById(id);

@@ -23,6 +23,14 @@ public interface PostService {
     PostListResponseDto getAllPosts();
 
     /**
+     * 게시물 페이징 정렬 조회
+     * @param page
+     * @param size
+     * @return
+     */
+    PostListResponseDto getPostListWithPage(int page, int size);
+
+    /**
      * 게시물 Id 별 조회
      * @param id 조회할 게시물 Id
      * @return 조회된 게시물
