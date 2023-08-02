@@ -7,6 +7,7 @@ import com.example.myblog.dto.PostResponseDto;
 import com.example.myblog.security.UserDetailsImpl;
 import com.example.myblog.service.PostServiceImpl;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -34,8 +35,14 @@ public class PostController {
     }
 
     @GetMapping("/page")
-    public ResponseEntity<PostListResponseDto> getPostListWithPage(@RequestParam("page") int page, @RequestParam("size") int size) {
-        PostListResponseDto result = postService.getPostListWithPage(page, size);
+    public ResponseEntity<PostListResponseDto> getPostListWithPage(Pageable pageable) {
+        PostListResponseDto result = postService.getPostListWithPage(pageable);
+        return ResponseEntity.ok().body(result);
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<PostListResponseDto> getPostFindByTitleList(@RequestParam("keyword") String keyword) {
+        PostListResponseDto result = postService.getPostFindByTitleList(keyword);
         return ResponseEntity.ok().body(result);
     }
 

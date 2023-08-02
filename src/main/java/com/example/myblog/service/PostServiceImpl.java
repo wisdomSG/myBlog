@@ -8,6 +8,7 @@ import com.example.myblog.entity.User;
 import com.example.myblog.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -42,11 +43,10 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public PostListResponseDto getPostListWithPage(int page, int size) {
+    public PostListResponseDto getPostListWithPage(Pageable pageable) {
 
-        PageRequest pageRequest = PageRequest.of(page, size);
 
-        List<PostResponseDto> postList = postRepository.getPostListWithPage(pageRequest.getOffset(), pageRequest.getPageSize())
+        List<PostResponseDto> postList = postRepository.getPostListWithPage(pageable)
                 .stream()
                 .map(PostResponseDto::new)
                 .toList();
@@ -58,6 +58,15 @@ public class PostServiceImpl implements PostService {
         Post post = findPost(id);
 
         return new PostResponseDto(post);
+    }
+
+    @Override
+    public PostListResponseDto getPostFindByTitleList(String keyword) {
+        List<PostResponseDto> postList = postRepository.getPostFindByTitleList(keyword)
+                .stream()
+                .map(PostResponseDto::new)
+                .toList();
+        return new PostListResponseDto(postList);
     }
 
     @Override

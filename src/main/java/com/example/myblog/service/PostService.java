@@ -5,6 +5,7 @@ import com.example.myblog.dto.PostRequestDto;
 import com.example.myblog.dto.PostResponseDto;
 import com.example.myblog.entity.Post;
 import com.example.myblog.entity.User;
+import org.springframework.data.domain.Pageable;
 
 public interface PostService {
 
@@ -24,11 +25,10 @@ public interface PostService {
 
     /**
      * 게시물 페이징 정렬 조회
-     * @param page
-     * @param size
+     * @param pageable
      * @return
      */
-    PostListResponseDto getPostListWithPage(int page, int size);
+    PostListResponseDto getPostListWithPage(Pageable pageable);
 
     /**
      * 게시물 Id 별 조회
@@ -36,6 +36,13 @@ public interface PostService {
      * @return 조회된 게시물
      */
     PostResponseDto getPostById(Long id);
+
+    /**
+     * 게시물 제목 검색 기능
+     * @param keyword 제목 Keyword
+     * @return 조회된 게시물
+     */
+    PostListResponseDto getPostFindByTitleList(String keyword);
 
     /**
      * 게시물 수정
