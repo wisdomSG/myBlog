@@ -9,13 +9,12 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/user")
 @RequiredArgsConstructor
-public class UserControlloer {
+public class UserController {
     private final UserService userService;
     private final JwtUtil jwtUtil;
 
@@ -44,20 +43,4 @@ public class UserControlloer {
         return ResponseEntity.ok().body(new ApiResponseDto("로그인 성공", HttpStatus.CREATED.value()));
     }
 
-    @ExceptionHandler({MethodArgumentNotValidException.class}) //Validation기능에서 유효성 검사를 통과하지 못한 경우에 발생하는 예외처리
-    public ResponseEntity<ApiResponseDto> handleMethodArgumentNotValidException(MethodArgumentNotValidException ex) {
-        ApiResponseDto restApiException = new ApiResponseDto(ex.getBindingResult().getAllErrors().get(0).getDefaultMessage(), HttpStatus.BAD_REQUEST.value());
-        return new ResponseEntity<>(
-                // HTTP body
-                restApiException,
-                // HTTP status code
-                HttpStatus.BAD_REQUEST
-        );
-    }
-
-    @ExceptionHandler({IllegalArgumentException.class})
-    public ResponseEntity<ApiResponseDto> handleIllegalArgumentException(IllegalArgumentException ex) {
-        ApiResponseDto restApiException = new ApiResponseDto(ex.getMessage(), HttpStatus.BAD_REQUEST.value());
-        return new ResponseEntity<>(restApiException, HttpStatus.BAD_REQUEST);
-    }
 }
