@@ -1,8 +1,6 @@
 package com.example.myblog.comment;
 
 import com.example.myblog.dto.ApiResponseDto;
-import com.example.myblog.dto.CommentRequestDto;
-import com.example.myblog.dto.CommentResponseDto;
 import com.example.myblog.security.UserDetailsImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

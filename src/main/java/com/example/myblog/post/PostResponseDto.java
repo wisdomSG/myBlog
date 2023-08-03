@@ -1,5 +1,6 @@
-package com.example.myblog.dto;
+package com.example.myblog.post;
 
+import com.example.myblog.comment.CommentResponseDto;
 import com.example.myblog.entity.Post;
 import lombok.Getter;
 import lombok.Setter;

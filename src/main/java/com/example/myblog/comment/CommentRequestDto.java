@@ -1,4 +1,4 @@
-package com.example.myblog.dto;
+package com.example.myblog.comment;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package com.example.myblog.dto;
+package com.example.myblog.comment;
 
 import com.example.myblog.entity.Comment;
 import lombok.Getter;

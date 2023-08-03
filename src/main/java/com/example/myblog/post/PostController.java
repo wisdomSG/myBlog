@@ -1,9 +1,6 @@
 package com.example.myblog.post;
 
 import com.example.myblog.dto.ApiResponseDto;
-import com.example.myblog.dto.PostListResponseDto;
-import com.example.myblog.dto.PostRequestDto;
-import com.example.myblog.dto.PostResponseDto;
 import com.example.myblog.security.UserDetailsImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;

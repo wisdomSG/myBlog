@@ -1,6 +1,5 @@
 package com.example.myblog.user;
 
-import com.example.myblog.dto.UserRequestDto;
 import com.example.myblog.entity.User;
 import com.example.myblog.entity.UserRoleEnum;
 import lombok.RequiredArgsConstructor;

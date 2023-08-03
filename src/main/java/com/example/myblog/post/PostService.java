@@ -1,8 +1,5 @@
 package com.example.myblog.post;
 
-import com.example.myblog.dto.PostListResponseDto;
-import com.example.myblog.dto.PostRequestDto;
-import com.example.myblog.dto.PostResponseDto;
 import com.example.myblog.entity.Post;
 import com.example.myblog.entity.User;
 import org.springframework.data.domain.Pageable;

@@ -1,4 +1,4 @@
-package com.example.myblog.dto;
+package com.example.myblog.user;
 
 import com.example.myblog.entity.UserRoleEnum;
 import jakarta.validation.constraints.Pattern;

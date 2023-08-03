@@ -1,7 +1,6 @@
 package com.example.myblog.user;
 
 import com.example.myblog.dto.ApiResponseDto;
-import com.example.myblog.dto.UserRequestDto;
 import com.example.myblog.jwt.JwtUtil;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
@@ -22,7 +21,7 @@ public class UserController {
         try {
             userService.signup(dto);
         } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body(new ApiResponseDto("회원가입 실패", HttpStatus.BAD_REQUEST.value()));
+            return ResponseEntity.badRequest().body(new ApiResponseDto("회원가입 실패 :" + e.getMessage(), HttpStatus.BAD_REQUEST.value()));
         }
         return  ResponseEntity.ok().body(new ApiResponseDto("회원가입 성공", HttpStatus.CREATED.value()));
     }
@@ -32,7 +31,7 @@ public class UserController {
         try {
             userService.login(dto);
         } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body(new ApiResponseDto("회원을 찾을 수 없습니다.", HttpStatus.BAD_REQUEST.value()));
+            return ResponseEntity.badRequest().body(new ApiResponseDto("회원을 찾을 수 없습니다. :" + e.getMessage(), HttpStatus.BAD_REQUEST.value()));
         }
 
         // JWT 생성 및 헤더에 추가

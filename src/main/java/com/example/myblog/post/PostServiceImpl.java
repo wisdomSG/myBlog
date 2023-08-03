@@ -1,8 +1,5 @@
 package com.example.myblog.post;
 
-import com.example.myblog.dto.PostListResponseDto;
-import com.example.myblog.dto.PostRequestDto;
-import com.example.myblog.dto.PostResponseDto;
 import com.example.myblog.entity.Post;
 import com.example.myblog.entity.User;
 import lombok.RequiredArgsConstructor;
@@ -67,7 +64,7 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    @Transactional
+    @Transactional //
     public PostResponseDto updatePost(Long id, User user, PostRequestDto dto) {
         Post post = findPost(id);
 

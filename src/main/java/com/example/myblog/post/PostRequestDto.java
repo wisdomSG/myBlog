@@ -1,4 +1,4 @@
-package com.example.myblog.dto;
+package com.example.myblog.post;
 
 import lombok.Builder;
 import lombok.Getter;
