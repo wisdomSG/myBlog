@@ -1,11 +1,10 @@
-package com.example.myblog.controller;
+package com.example.myblog.post;
 
 import com.example.myblog.dto.ApiResponseDto;
 import com.example.myblog.dto.PostListResponseDto;
 import com.example.myblog.dto.PostRequestDto;
 import com.example.myblog.dto.PostResponseDto;
 import com.example.myblog.security.UserDetailsImpl;
-import com.example.myblog.service.PostServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;

@@ -1,20 +1,17 @@
-package com.example.myblog.service;
+package com.example.myblog.post;
 
 import com.example.myblog.dto.PostListResponseDto;
 import com.example.myblog.dto.PostRequestDto;
 import com.example.myblog.dto.PostResponseDto;
 import com.example.myblog.entity.Post;
 import com.example.myblog.entity.User;
-import com.example.myblog.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor

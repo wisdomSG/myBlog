@@ -1,9 +1,8 @@
-package com.example.myblog.controller;
+package com.example.myblog.user;
 
 import com.example.myblog.dto.ApiResponseDto;
 import com.example.myblog.dto.UserRequestDto;
 import com.example.myblog.jwt.JwtUtil;
-import com.example.myblog.service.UserService;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

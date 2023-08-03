@@ -1,4 +1,4 @@
-package com.example.myblog.repository;
+package com.example.myblog.comment;
 
 import com.example.myblog.entity.Comment;
 import org.springframework.data.jpa.repository.JpaRepository;

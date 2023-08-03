@@ -1,11 +1,11 @@
-package com.example.myblog.service;
+package com.example.myblog.comment;
 
 import com.example.myblog.dto.CommentRequestDto;
 import com.example.myblog.dto.CommentResponseDto;
 import com.example.myblog.entity.Comment;
 import com.example.myblog.entity.Post;
 import com.example.myblog.entity.User;
-import com.example.myblog.repository.CommentRepository;
+import com.example.myblog.post.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

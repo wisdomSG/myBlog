@@ -1,9 +1,8 @@
-package com.example.myblog.service;
+package com.example.myblog.user;
 
 import com.example.myblog.dto.UserRequestDto;
 import com.example.myblog.entity.User;
 import com.example.myblog.entity.UserRoleEnum;
-import com.example.myblog.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

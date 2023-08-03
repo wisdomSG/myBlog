@@ -27,7 +27,9 @@ dependencies {
     // JPA
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     //swagger-ui
-    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0' // groupId: org.springdoc, artifactId: springdoc-openapi-starter-webmvc-ui
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0'
+
+// groupId: org.springdoc, artifactId: springdoc-openapi-starter-webmvc-ui
     // MySQL
     runtimeOnly 'com.mysql:mysql-connector-j'
     // SpringSecurity
@@ -41,6 +43,8 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.security:spring-security-test:6.1.2'
+    testImplementation 'org.mockito:mockito-core:5.2.0'
 
     // ⭐ Spring boot 3.x이상에서 QueryDsl 패키지를 정의하는 방법
     implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'

@@ -1,4 +1,4 @@
-package com.example.myblog.repository;
+package com.example.myblog.user;
 
 import com.example.myblog.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;

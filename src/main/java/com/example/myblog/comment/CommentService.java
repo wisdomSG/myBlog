@@ -1,4 +1,4 @@
-package com.example.myblog.service;
+package com.example.myblog.comment;
 
 import com.example.myblog.dto.CommentRequestDto;
 import com.example.myblog.dto.CommentResponseDto;

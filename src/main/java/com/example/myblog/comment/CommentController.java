@@ -1,11 +1,9 @@
-package com.example.myblog.controller;
+package com.example.myblog.comment;
 
 import com.example.myblog.dto.ApiResponseDto;
 import com.example.myblog.dto.CommentRequestDto;
 import com.example.myblog.dto.CommentResponseDto;
-import com.example.myblog.dto.PostResponseDto;
 import com.example.myblog.security.UserDetailsImpl;
-import com.example.myblog.service.CommentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

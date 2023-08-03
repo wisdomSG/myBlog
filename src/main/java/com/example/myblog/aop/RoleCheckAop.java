@@ -4,9 +4,8 @@ import com.example.myblog.entity.Comment;
 import com.example.myblog.entity.Post;
 import com.example.myblog.entity.User;
 import com.example.myblog.entity.UserRoleEnum;
-import com.example.myblog.security.UserDetailsImpl;
-import com.example.myblog.service.CommentService;
-import com.example.myblog.service.PostService;
+import com.example.myblog.comment.CommentService;
+import com.example.myblog.post.PostService;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -28,16 +27,16 @@ public class RoleCheckAop {
     @Autowired
     private CommentService commentService;
 
-    @Pointcut("execution(* com.example.myblog.service.PostService.updatePost(..))") //AOP의 어느 지점에서 실행될지를 결정
+    @Pointcut("execution(* com.example.myblog.post.PostService.updatePost(..))") //AOP의 어느 지점에서 실행될지를 결정
     private void updatePost() {}
 
-    @Pointcut("execution(* com.example.myblog.service.PostService.deletePost(..))") //AOP의 어느 지점에서 실행될지를 결정
+    @Pointcut("execution(* com.example.myblog.post.PostService.deletePost(..))") //AOP의 어느 지점에서 실행될지를 결정
     private void deletePost() {}
 
-    @Pointcut("execution(* com.example.myblog.service.CommentService.updateComment(..))") //AOP의 어느 지점에서 실행될지를 결정
+    @Pointcut("execution(* com.example.myblog.comment.CommentService.updateComment(..))") //AOP의 어느 지점에서 실행될지를 결정
     private void updateComment() {}
 
-    @Pointcut("execution(* com.example.myblog.service.CommentService.deleteComment(..))") //AOP의 어느 지점에서 실행될지를 결정
+    @Pointcut("execution(* com.example.myblog.comment.CommentService.deleteComment(..))") //AOP의 어느 지점에서 실행될지를 결정
     private void deleteComment() {}
 
     @Around("updatePost() || deletePost()")
