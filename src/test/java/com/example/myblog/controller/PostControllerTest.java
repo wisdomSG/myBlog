@@ -43,6 +43,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 )
 class PostControllerTest {
 
+
     private MockMvc mvc;
 
     private Principal mockPrincipal;
@@ -53,11 +54,11 @@ class PostControllerTest {
     @Autowired
     private ObjectMapper objectMapper;
 
-    @MockBean
-    UserService userService;
-
-    @MockBean // 껍데기만 만들겠다는 뜻  (사전정의 하는 방법이 있음)
-    PostService postService;
+//    @MockBean
+//    UserService userService;
+//
+//    @MockBean // 껍데기만 만들겠다는 뜻  (사전정의 하는 방법이 있음)
+//    PostService postService;
 
     private static final String BASE_URL = "/api";
 
@@ -68,6 +69,9 @@ class PostControllerTest {
                 .build();
     }
 
+
+    @Test
+    @DisplayName("Mock 테스트 유저 생성")
     private void mockUserSetup() {
         // Mock 테스트 유져 생성
         String username = "soll435";
@@ -77,6 +81,7 @@ class PostControllerTest {
         UserDetailsImpl testUserDetails = new UserDetailsImpl(testUser);
         mockPrincipal = new UsernamePasswordAuthenticationToken(testUserDetails, "", testUserDetails.getAuthorities());
     }
+
     @Test
     @DisplayName("게시물 저장 테스트")
     void save_test() throws Exception {

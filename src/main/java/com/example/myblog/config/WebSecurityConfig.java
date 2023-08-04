@@ -57,6 +57,7 @@ public class WebSecurityConfig {
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll() // resources 접근 허용 설정
                         .requestMatchers("/api/user/**").permitAll() // '/api/user/'로 시작하는 요청 모두 접근 허가
                         .requestMatchers(HttpMethod.GET, "/api/posts/**").permitAll() // 'GET /api/posts'로 시작하는 요청 모두 접근 허가
+                        .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll() // swagger 허용
                         .anyRequest().authenticated() // 그 외 모든 요청 인증처리
         );
 
