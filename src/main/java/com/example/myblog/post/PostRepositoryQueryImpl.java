@@ -20,13 +20,15 @@ public class PostRepositoryQueryImpl implements PostRepositoryQuery {
 
 
     @Override
-    public List<Post> getPostFindByTitleList(String keyword) {
+    public List<Post> getPostFindByTitleList(String keyword, Pageable pageable) {
         QPost post = QPost.post;
         QUser user = QUser.user;
 
         return jpaQueryFactory.selectFrom(post)
                 .leftJoin(post.user, user)
                 .where(post.title.like("%" + keyword + "%"))
+                .offset(pageable.getOffset())
+                .limit(pageable.getPageSize())
                 .fetch();
     }
 

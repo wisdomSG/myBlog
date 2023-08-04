@@ -73,8 +73,8 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public PostListResponseDto getPostFindByTitleList(String keyword) {
-        List<PostResponseDto> postList = postRepository.getPostFindByTitleList(keyword)
+    public PostListResponseDto getPostFindByTitleList(String keyword, Pageable pageable) {
+        List<PostResponseDto> postList = postRepository.getPostFindByTitleList(keyword, pageable)
                 .stream()
                 .map(PostResponseDto::new)
                 .toList();

@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface PostRepositoryQuery {
 
-    List<Post> getPostFindByTitleList (String keyword);
+    List<Post> getPostFindByTitleList (String keyword, Pageable pageable);
 
     List<Post> getPostListWithPage (Pageable pageable);
 }

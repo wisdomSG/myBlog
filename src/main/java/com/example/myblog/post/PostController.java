@@ -51,8 +51,8 @@ public class PostController {
 
     @GetMapping("/search")
     @Operation(summary = "게시물 제목 검색 API")
-    public ResponseEntity<PostListResponseDto> getPostFindByTitleList(@RequestParam("keyword") String keyword) {
-        PostListResponseDto result = postService.getPostFindByTitleList(keyword);
+    public ResponseEntity<PostListResponseDto> getPostFindByTitleList(@RequestParam("keyword") String keyword, Pageable pageable) {
+        PostListResponseDto result = postService.getPostFindByTitleList(keyword, pageable);
         return ResponseEntity.ok().body(result);
     }
 

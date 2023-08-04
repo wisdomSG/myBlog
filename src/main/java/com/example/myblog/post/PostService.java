@@ -49,9 +49,10 @@ public interface PostService {
     /**
      * 게시물 제목 검색 기능
      * @param keyword 제목 Keyword
+     * @param pageable 페이지
      * @return 조회된 게시물
      */
-    PostListResponseDto getPostFindByTitleList(String keyword);
+    PostListResponseDto getPostFindByTitleList(String keyword, Pageable pageable);
 
     /**
      * 게시물 수정
