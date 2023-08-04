@@ -3,6 +3,10 @@ package com.example.myblog.post;
 import com.example.myblog.entity.Post;
 import com.example.myblog.entity.User;
 import org.springframework.data.domain.Pageable;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
+import java.util.List;
 
 public interface PostService {
 
@@ -12,7 +16,15 @@ public interface PostService {
      * @param user 게시물 생성 요청자
      * @return 게시물 생성 결과
      */
-    PostResponseDto createPost(PostRequestDto dto, User user);
+
+    /**
+     * 게시물 생성
+     * @param dto 게시물 생성 요청 정보
+     * @param user 게시물 생성 요청자
+     * @param multipartFiles 게시물 이미지
+     * @return 게시물 생성 결과
+     */
+    PostResponseDto createPost(PostRequestDto dto, User user, List<MultipartFile>multipartFiles);
 
     /**
      * 게시물 전체 조회
@@ -55,7 +67,7 @@ public interface PostService {
      * @param id 삭제할 게시물 Id
      * @param user 게시물 삭제 요청자
      */
-    void deletePost(Long id, User user);
+    void deletePost(Long id, User user) throws IOException;
 
     /**
      * Id로 게시물 검색

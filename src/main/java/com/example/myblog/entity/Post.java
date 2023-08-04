@@ -28,6 +28,9 @@ public class Post extends TimeStamped {
     @OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE)
     private List<Comment> commentList = new ArrayList<>();
 
+    @OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE)
+    private List<PostImage> postImageList = new ArrayList<>();
+
     public Post(String title, String content, User user) {
         this.title = title;
         this.content = content;

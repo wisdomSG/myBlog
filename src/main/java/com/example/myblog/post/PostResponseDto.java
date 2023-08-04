@@ -5,6 +5,7 @@ import com.example.myblog.entity.Post;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
@@ -18,6 +19,7 @@ public class PostResponseDto {
     private String createdAt;
     private String modifiedAt;
     private List<CommentResponseDto> commentList;
+    private List<PostImageResponseDto> postImageList = new ArrayList<>();
     public PostResponseDto(Post post) {
         this.id = post.getId();
         this.title = post.getTitle();

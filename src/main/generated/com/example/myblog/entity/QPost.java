@@ -36,6 +36,8 @@ public class QPost extends EntityPathBase<Post> {
     //inherited
     public final DateTimePath<java.time.LocalDateTime> modifiedAt = _super.modifiedAt;
 
+    public final ListPath<PostImage, QPostImage> postImageList = this.<PostImage, QPostImage>createList("postImageList", PostImage.class, QPostImage.class, PathInits.DIRECT2);
+
     public final StringPath title = createString("title");
 
     public final QUser user;
